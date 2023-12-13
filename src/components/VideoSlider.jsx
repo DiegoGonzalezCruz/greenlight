@@ -1,64 +1,71 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "reveal.js";
 import "reveal.js/dist/reveal.css";
 import ReactPlayer from "react-player";
 
 const VideoSlider = ({ videos }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const revealEl = useRef(null);
+  const deckRef = useRef(null); // Create a ref to store the Reveal.js instance
+
   useEffect(() => {
-    const deck = new Reveal({
-      // Display presentation control arrows
-      controls: true,
+    // Only initialize Reveal.js if the DOM element is present
+    if (revealEl.current) {
+      // Initialize Reveal.js and store the instance in the ref
+      deckRef.current = new Reveal(revealEl.current, {
+        controls: true,
+        width: "100%",
+        height: "100%",
+        margin: 0,
+        minScale: 1,
+        maxScale: 1,
+        hideAddressBar: true,
+        transition: "slide",
+      });
 
-      // Help the presentation scale to fit the browser window
-      width: "100%",
-      height: "100%",
-      margin: 0,
-      minScale: 1,
-      maxScale: 1,
+      // Start Reveal.js
+      deckRef.current.initialize();
 
-      // Hides address bar on mobile devices
-      hideAddressBar: true,
+      // Set up event listeners
+      deckRef.current.on("slidechanged", (event) => {
+        setCurrentSlide(event.indexh);
+        console.log("Slide changed to: ", event.indexh);
+      });
+    }
 
-      // Transition style
-      transition: "slide", // none/fade/slide/convex/concave/zoom
-
-      // More options available, but these are good for full size backgrounds
-    });
-
-    deck.initialize();
-
-    deck.on("slidechanged", (event) => {
-      console.log("Slide changed to: ", event.indexh);
-    });
-
-    deck.on("make-it-pop", () => {
-      console.log("✨");
-    });
-
+    // Cleanup function
     return () => {
-      deck.off("slidechanged");
-      deck.off("make-it-pop");
+      // Only call destroy if the Reveal.js instance is initialized
+      // and if the DOM element still exists
+      if (deckRef.current && revealEl.current) {
+        try {
+          deckRef.current.destroy();
+        } catch (error) {
+          console.error("Error destroying Reveal.js instance:", error);
+        }
+      }
     };
   }, []);
 
   return (
-    <div className="reveal h-screen w-screen ">
+    <div className="reveal h-screen w-screen" ref={revealEl}>
       <div className="slides w-full h-full">
         {videos.map((video, index) => (
-          <section key={video} className="player-wrapper">
-            <ReactPlayer
-              url={video}
-              controls={false}
-              autoPlay={true}
-              playing={true}
-              volume={0}
-              muted={true}
-              loop={true}
-              width="100%"
-              height="100%"
-              className="react-player"
-            />
+          <section key={index} className="player-wrapper">
+            {currentSlide === index && (
+              <ReactPlayer
+                url={video}
+                controls={false}
+                playing={true}
+                volume={0}
+                muted={true}
+                loop={true}
+                width="100%"
+                height="100%"
+                className="react-player"
+              />
+            )}
           </section>
         ))}
       </div>
