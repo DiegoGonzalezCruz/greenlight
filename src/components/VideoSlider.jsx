@@ -43,10 +43,10 @@ const VideoSlider = ({ videos }) => {
   }, []);
 
   return (
-    <div className="reveal h-screen w-screen debug1">
+    <div className="reveal h-screen w-screen ">
       <div className="slides w-full h-full">
         {videos.map((video, index) => (
-          <section key={index} className="player-wrapper">
+          <section key={video} className="player-wrapper">
             <ReactPlayer
               url={video}
               controls={false}
