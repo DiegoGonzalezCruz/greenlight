@@ -52,7 +52,6 @@ const VideoSlider = ({ videos }) => {
               controls={false}
               autoPlay={true}
               playing={true}
-              controls={false}
               volume={0}
               muted={true}
               loop={true}
