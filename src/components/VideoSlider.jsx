@@ -49,7 +49,7 @@ const VideoSlider = ({ videos }) => {
     >
       {videos.map((video, index) => (
         <SwiperSlide
-          key={video}
+          key={video.href}
           className="  relative player-wrapper  w-full h-full bg-green-900 "
         >
           <ReactPlayer
