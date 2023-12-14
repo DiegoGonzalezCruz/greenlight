@@ -14,7 +14,7 @@ export default function Home() {
     "/assets/loops/hls/slide6.m3u8",
     "/assets/loops/hls/slide7.m3u8",
     "/assets/loops/hls/slide8.m3u8",
-    // "/assets/loops/hls/slide9.m3u8",
+    "/assets/loops/hls/slide9.m3u8",
     // "/assets/loops/hls/slide10.m3u8",
     // "/assets/loops/hls/slide11.m3u8",
     // "/assets/loops/hls/slide12.m3u8",
@@ -22,5 +22,5 @@ export default function Home() {
     // "/assets/loops/hls/slide14.m3u8",
   ];
 
-  return <VideoSlider videos={videos} />;
+  return <VideoSlider videos={videosVimeo} />;
 }

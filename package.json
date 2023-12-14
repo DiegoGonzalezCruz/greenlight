@@ -13,7 +13,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-player": "^2.13.0",
-    "reveal.js": "^5.0.2"
+    "reveal.js": "^5.0.2",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

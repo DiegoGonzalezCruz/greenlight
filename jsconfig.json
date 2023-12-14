@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
+    "baseUrl": ".", // Set the base URL for relative module names
     "paths": {
-      "@/*": ["./src/*"]
-    }
-  }
+      "@/*": ["./src/*"] // Alias for your src directory
+    },
+    "module": "esnext", // Use ES modules
+    "target": "es6", // Set the JavaScript language version
+    "moduleResolution": "node", // Use Node's module resolution strategy
+    "esModuleInterop": true, // Enables ES Module interop with default exports
+    "allowSyntheticDefaultImports": true // Allow default imports from modules with no default export
+  },
+  "include": ["next-env.d.ts", "**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"], // Include these files in your project
+  "exclude": ["node_modules"] // Exclude node_modules from the project scope
 }
