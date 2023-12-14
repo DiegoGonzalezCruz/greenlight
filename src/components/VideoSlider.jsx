@@ -41,7 +41,7 @@ const VideoSlider = ({ videos }) => {
       onSlideChange={handleSlideChange} // Add this line
       // onSlideChange={() => console.log("slide change")}
       // onSwiper={(swiper) => console.log(swiper)}
-      className="h-full w-full debug1 relative"
+      className="h-full w-full  relative"
       navigation
       parallax
       mousewheel
@@ -50,7 +50,7 @@ const VideoSlider = ({ videos }) => {
       {videos.map((video, index) => (
         <SwiperSlide
           key={video}
-          className="  relative player-wrapper  w-full h-full bg-green-800 "
+          className="  relative player-wrapper  w-full h-full bg-green-900 "
         >
           <ReactPlayer
             url={video.vimeoUrl}
@@ -63,9 +63,13 @@ const VideoSlider = ({ videos }) => {
             height="100%"
             className="react-player aspect-video absolute top-0 left-0 w-full h-full"
           />
-          <div className="  absolute top-3/4 left-10  ">
-            <div className="  h-full w-full flex flex-col items-start justify-end  p-4 cursor-pointer hover:font-bold hover:transition-all">
-              <a className="text-white   " target="_blank" href={video.href}>
+          <div className="  absolute top-0 left-0 w-full h-full  ">
+            <div className="  h-full w-full flex flex-col items-start justify-end  pl-10 pb-20 ">
+              <a
+                className="text-white  cursor-pointer hover:font-bold transition-transform duration-200 ease-in-out transform hover:scale-105  "
+                target="_blank"
+                href={video.href}
+              >
                 {video.text}
               </a>
             </div>
