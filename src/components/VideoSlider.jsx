@@ -28,11 +28,11 @@ const VideoSlider = ({ videos }) => {
         Mousewheel,
         EffectFade,
       ]}
-      spaceBetween={50}
+      spaceBetween={0}
       slidesPerView={1}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
-      className="h-screen w-screen debug1"
+      // onSlideChange={() => console.log("slide change")}
+      // onSwiper={(swiper) => console.log(swiper)}
+      className="h-screen w-screen "
       navigation
       parallax
       mousewheel
@@ -41,7 +41,7 @@ const VideoSlider = ({ videos }) => {
       {videos.map((video, index) => (
         <SwiperSlide
           key={video}
-          className="w-screen h-screen flex justify-center items-center"
+          className=" flex justify-center items-center  player-wrapper"
         >
           <ReactPlayer
             url={video}
