@@ -11,6 +11,7 @@ import {
   Mousewheel,
   EffectFade,
 } from "swiper/modules";
+import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css/bundle";
@@ -64,13 +65,23 @@ const VideoSlider = ({ videos }) => {
             className="react-player aspect-video absolute top-0 left-0 w-full h-full"
           />
           <div className="  absolute top-0 left-0 w-full h-full  ">
-            <div className="  h-full w-full flex flex-col items-start justify-end  pl-10 pb-20 ">
+            <div className="  h-full w-full flex flex-col items-start justify-end  px-10 pb-20 ">
               <a
-                className="text-white  cursor-pointer hover:font-bold transition-transform duration-200 ease-in-out transform hover:scale-105  "
+                className="text-white  cursor-pointer w-full "
                 target="_blank"
                 href={video.href}
               >
-                {video.text}
+                <div className="flex flex-row items-center justify-between w-full ">
+                  <p className="hover:font-bold transition-transform duration-200 ease-in-out transform hover:scale-105 ">
+                    {video.text}
+                  </p>
+                  <Image
+                    src={"/greenlight.png"}
+                    width={50}
+                    height={50}
+                    alt={video.text}
+                  />
+                </div>
               </a>
             </div>
           </div>
