@@ -12,3 +12,8 @@ export default function Home() {
     </main>
   );
 }
+
+export const metadata = {
+  title: "Greenlight Productions",
+  description: "Greenlight Productions",
+};
