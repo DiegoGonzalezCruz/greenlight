@@ -7,7 +7,7 @@ import { videosVimeo } from "@/videos";
 
 export default function Home() {
   return (
-    <main className=" w-screen h-screen">
+    <main className=" w-full h-screen ">
       <VideoSlider videos={videosVimeo} />
     </main>
   );
