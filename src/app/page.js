@@ -1,6 +1,6 @@
-// import VideoSlider1 from "@/components/VideoSlider1";
+// import VideoSlider from "@/components/VideoSlider";
 import dynamic from "next/dynamic";
-const VideoSlider1 = dynamic(() => import("@/components/VideoSlider1"), {
+const VideoSlider = dynamic(() => import("@/components/VideoSlider"), {
   ssr: false,
 });
 import { videosVimeo } from "@/videos";
@@ -8,7 +8,7 @@ import { videosVimeo } from "@/videos";
 export default function Home() {
   return (
     <main className=" w-full h-screen ">
-      <VideoSlider1 videos={videosVimeo} />
+      <VideoSlider videos={videosVimeo} />
     </main>
   );
 }
