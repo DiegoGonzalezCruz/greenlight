@@ -17,13 +17,24 @@ import Image from "next/image";
 import "swiper/css/bundle";
 import Slide from "./Slide";
 
-const VideoSlider = ({ videos }) => {
+const VideoSliderIframe = ({ videos }) => {
   // State to keep track of the current slide index
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   // Update the current slide index when it changes
   console.log("activeSlideIndex", activeSlideIndex);
   const handleSlideChange = (swiper) => {
     setActiveSlideIndex(swiper.activeIndex);
+  };
+
+  const STYLES = {
+    videoIframeContainer: { padding: "56.25% 0 0 0", position: "relative" },
+    videoIframe: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+    },
   };
 
   return (
@@ -53,39 +64,16 @@ const VideoSlider = ({ videos }) => {
           key={video.href}
           className="  relative aspect-video  w-full h-full bg-[#008845] "
         >
-          <div className=" h-full w-full debug2">
-            <ReactPlayer
-              url={video.vimeoUrl}
-              controls={false}
-              playing={index === activeSlideIndex} // Play only if the slide is active
-              volume={0}
-              muted={true}
-              loop={true}
-              width="100%"
-              height="100%"
-              className=" debug2 absolute top-0 left-0 w-full h-full"
-            />
-            <div className="  absolute top-0 left-0 w-full h-full  ">
-              <div className="  h-full w-full flex flex-col items-start justify-end  px-10 pb-20 ">
-                <a
-                  className="text-white  cursor-pointer w-full "
-                  target="_blank"
-                  href={video.href}
-                >
-                  <div className="flex flex-row items-center justify-between w-full ">
-                    <p className="hover:font-bold transition-transform duration-200 ease-in-out transform hover:scale-105 ">
-                      {video.text}
-                    </p>
-                    <Image
-                      src={"/greenlight.png"}
-                      width={50}
-                      height={50}
-                      alt={video.text}
-                    />
-                  </div>
-                </a>
-              </div>
-            </div>
+          <div style={STYLES.videoIframeContainer}>
+            <iframe
+              title="vimeo-player"
+              src={video.vimeoUrl}
+              width="640"
+              height="360"
+              frameBorder="0"
+              allowFullScreen
+              style={STYLES.videoIframe}
+            ></iframe>
           </div>
         </SwiperSlide>
       ))}
@@ -93,4 +81,4 @@ const VideoSlider = ({ videos }) => {
   );
 };
 
-export default VideoSlider;
+export default VideoSliderIframe;
