@@ -10,7 +10,7 @@ import { videosVimeo } from "@/videos";
 
 export default function Home() {
   return (
-    <main className=" w-screen h-screen bg-[#203133] z-40  ">
+    <main className=" w-screen h-full bg-[#203133] z-40  ">
       <VideoSliderReactPlayer videos={videosVimeo} />
     </main>
   );
