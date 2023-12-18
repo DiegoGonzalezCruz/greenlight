@@ -30,7 +30,7 @@ const VideoSliderReactPlayer = ({ videos }) => {
 
   const handleOnClick = (video) => {
     console.log("click", video);
-    router.push(video.href);
+    window.open(video.href, "_blank");
   };
 
   return (
@@ -39,7 +39,7 @@ const VideoSliderReactPlayer = ({ videos }) => {
         modules={[
           Navigation,
           Pagination,
-          Scrollbar,
+          // Scrollbar,
           A11y,
           Parallax,
           Mousewheel,
@@ -51,7 +51,11 @@ const VideoSliderReactPlayer = ({ videos }) => {
         className="h-full w-full  relative z-50 "
         navigation
         parallax
-        mousewheel
+        mousewheel={{
+          sensitivity: 1,
+          thresholdTime: 500,
+          thresholdDelta: 10,
+        }}
         effect="fade"
       >
         {videos.map((video, index) => {
@@ -60,13 +64,12 @@ const VideoSliderReactPlayer = ({ videos }) => {
             <div className=" h-full w-full  cursor-pointer" key={video.href}>
               <SwiperSlide
                 key={video.href}
-                className="  relative aspect-video cursor-pointer w-full h-full bg-[#203133] z-40"
+                className="  relative aspect-video cursor-pointer w-full h-full bg-black z-40"
               >
                 <ReactPlayer
                   url={video.vimeoUrl}
                   controls={false}
-                  playing={true}
-                  // playing={index === activeSlideIndex} // Play only if the slide is active
+                  playing={index === activeSlideIndex} // Play only if the slide is active
                   volume={0}
                   muted={true}
                   loop={true}
