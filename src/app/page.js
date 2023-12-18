@@ -1,17 +1,18 @@
 // import VideoSlider from "@/components/VideoSlider";
 import dynamic from "next/dynamic";
-const VideoSliderReactPlayer = dynamic(
-  () => import("@/components/VideoSliderReactPlayer"),
+const VideoSliderVideoTag = dynamic(
+  () => import("@/components/VideoSliderVideoTag"),
   {
     ssr: false,
   }
 );
 import { videosVimeo } from "@/videos";
 
+
 export default function Home() {
   return (
     <main className=" w-screen h-dscreen bg-[#203133] z-40  ">
-      <VideoSliderReactPlayer videos={videosVimeo} />
+      <VideoSliderVideoTag videos={videosVimeo} />
     </main>
   );
 }
