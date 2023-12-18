@@ -26,7 +26,7 @@ export const videosVimeo = [
   {
     slide: 4,
     text: "Client: USTA  |  Type of Video: Live Event  |  Filming Location: New York",
-    href: "https://app.frame.io/presentations/8a1b9200-9e19-458c-adcc-4c46068ffadf",
+    href: "https://app.frame.io/presentations/9a572bc5-a038-4710-85dd-9e04fd77e3fe",
     vimeoUrl: "https://vimeo.com/894562163/0666812440?share=copy",
     embedUrl:
       "https://player.vimeo.com/video/894562163?h=0666812440&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
@@ -66,7 +66,7 @@ export const videosVimeo = [
   {
     slide: 9,
     text: "Client: ESPN  |  Type of Video: Show Open  |  Filming Location: North Carolina",
-    href: "https://app.frame.io/presentations/bb8fa97a-3a41-4962-b8ef-d721abcda889",
+    href: "https://app.frame.io/presentations/780bc196-72a8-47be-8d29-0cff1425c8bd",
     vimeoUrl: "https://vimeo.com/894554616/7711e054e8?share=copy",
     embedUrl:
       "https://player.vimeo.com/video/894554616?h=7711e054e8&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
