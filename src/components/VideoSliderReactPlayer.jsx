@@ -16,9 +16,25 @@ import { useRouter } from "next/navigation";
 
 // Import Swiper styles
 import "swiper/css/bundle";
+import useDeviceDetection from "./useDeviceDetection";
+
+import toast from 'react-hot-toast';
 
 const VideoSliderReactPlayer = ({ videos }) => {
   const router = useRouter();
+
+  const device = useDeviceDetection();
+
+  useEffect(() => {
+    if (device === "Mobile" || device === "Tablet") {
+      toast("Better experience in Desktop", {
+        // additional toast options if needed
+        icon: '📱'
+      });
+    }
+  }, [device]); // Only re-run the effect if the device changes
+
+
 
   // State to keep track of the current slide index
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
