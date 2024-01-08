@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 import "swiper/css/bundle";
 import useDeviceDetection from "./useDeviceDetection";
 
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 
 const VideoSliderReactPlayer = ({ videos }) => {
   const router = useRouter();
@@ -27,17 +27,17 @@ const VideoSliderReactPlayer = ({ videos }) => {
 
   useEffect(() => {
     if (device === "Mobile" || device === "Tablet") {
-      toast("Better experience in Desktop", {
+      toast("Better viewed in Desktop", {
         // additional toast options if needed
-        icon: '📱'
+        icon: "📱",
       });
     }
   }, [device]); // Only re-run the effect if the device changes
 
-
-
   // State to keep track of the current slide index
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
   // Update the current slide index when it changes
   // console.log("activeSlideIndex", activeSlideIndex);
   const handleSlideChange = (swiper) => {
@@ -51,6 +51,17 @@ const VideoSliderReactPlayer = ({ videos }) => {
 
   return (
     <div className={" h-full w-full"}>
+      {isLoading && (
+        <div className="w-full h-full flex justify-center items-center ">
+          <Image
+            src="/Greenlight_Icon_Reverse.png"
+            width={100}
+            height={100}
+            alt="greenlight logo"
+            className="w-fit h-fit animate-pulse  "
+          />
+        </div>
+      )}
       <Swiper
         modules={[
           Navigation,
@@ -83,6 +94,8 @@ const VideoSliderReactPlayer = ({ videos }) => {
                 className="  relative aspect-video cursor-pointer w-full h-full bg-black z-40"
               >
                 <ReactPlayer
+                  onReady={() => setIsLoading(false)}
+                  onPlay={() => console.log("playing" + index)}
                   url={video.vimeoUrl}
                   controls={false}
                   playing={index === activeSlideIndex} // Play only if the slide is active
