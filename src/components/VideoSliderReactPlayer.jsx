@@ -48,17 +48,20 @@ const VideoSliderReactPlayer = ({ videos }) => {
     console.log("click", video);
     window.open(video.href, "_blank");
   };
+  const handleGoToGreenlight = () => {
+    window.open("https://greenlightproductions.com", "_blank");
+  };
 
   return (
     <div className={" h-full w-full"}>
       {isLoading && (
         <div className="w-full h-full flex justify-center items-center ">
           <Image
-            src="/Greenlight_Icon_Reverse.png"
+            src="/greenlight.png"
             width={100}
             height={100}
             alt="greenlight logo"
-            className="w-fit h-fit animate-pulse  "
+            className="w-48 h-fit animate-pulse  "
           />
         </div>
       )}
@@ -114,8 +117,13 @@ const VideoSliderReactPlayer = ({ videos }) => {
                   }}
                 />
                 <div
-                  className="absolute z-30 top-0 left-0 bottom-0 right-0"
+                  className="absolute z-30 top-0 left-0 bottom-0 right-0  "
                   onClick={() => handleOnClick(video)}
+                />
+
+                <div
+                  className="absolute z-30 bottom-0 right-0 w-48 h-24 md:h-48  "
+                  onClick={() => handleGoToGreenlight(video)}
                 />
               </SwiperSlide>
             </div>

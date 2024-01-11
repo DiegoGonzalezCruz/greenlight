@@ -48,3 +48,17 @@
 .react-player {
   z-index: 1;
 }
+
+
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  border: 30px solid transparent; /* Adjust the size as needed */
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.swiper-button-next:hover:after, .swiper-button-prev:hover:after {
+  transform: scale(1.1);
+}
+
+
