@@ -121,8 +121,8 @@ export const videosVimeo = [
   },
   {
     slide: 13,
-    text: "Client: Hospital for Special Care  |  Type of Video: Testimonial  |  Filming Location: Connecticut ",
-    href: "https://app.frame.io/presentations/5176b107-1781-44e3-97a5-fd1c81cd6a3f",
+    text: "Client: NBC | Type of Video: Show Open | Filming Location: Bedford, New York",
+    href: "https://app.frame.io/presentations/780bc196-72a8-47be-8d29-0cff1425c8bd",
     hd: "https://player.vimeo.com/progressive_redirect/playback/894562341/rendition/1080p/file.mp4?loc=external&log_user=0&signature=f53acd72f1cc60c5a52bef7484704eb8986c67cdfead8f951df4ff3927b4f29e",
     vimeoUrl: "https://vimeo.com/894562341/f9d7aa9528?share=copy",
     m3u8: "https://player.vimeo.com/external/894562341.m3u8?s=e20db6ac6c5338af30b7607a02c7fe9c0f0de3f8&logging=false",
